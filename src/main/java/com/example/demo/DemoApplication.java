@@ -12,18 +12,19 @@ import com.example.demo.repositories.*;
 @SpringBootApplication
 public class DemoApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
+
+
+    private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
 
 
     /*
     @Bean
     public CommandLineRunner demo(BookRepository repository) {
         return (args) -> {
-            // save a few customers
+            // save a few books
             repository.save(new Book("Sagan om Ringen", "Tolkien"));
             repository.save(new Book("Sagan om de två tornen", "Tolkien"));
             repository.save(new Book("Sagan om Konungens återkomst", "Tolkien"));

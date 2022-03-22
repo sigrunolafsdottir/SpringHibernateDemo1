@@ -5,19 +5,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//Entities are objects that map to databas tables
+//Entities are objects that map to database tables
 @Entity
 public class Book {
 
     @Id    //berättar att detta är nyckel-värdet för entiteten
-    @GeneratedValue(strategy=GenerationType.AUTO)  //default, persistence provider bestämmer hur nycklar genereras
+    @GeneratedValue //default, persistence provider bestämmer hur nycklar genereras
     private Long id;
     private String title;
     private String author;
 
-    public Book(){}
+    public Book() {
+    }
 
-    public Book(String title, String author){
+    public Book(String title, String author) {
         this.title = title;
         this.author = author;
     }
