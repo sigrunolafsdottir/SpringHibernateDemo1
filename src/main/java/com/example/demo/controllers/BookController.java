@@ -15,7 +15,7 @@ public class BookController {
     private BookRepository bookRepository;
 
     @GetMapping( "/add")
-    public String addNewUser(@RequestParam String title
+    public String addNewBook(@RequestParam String title
             , @RequestParam String author) {
         // @RequestParam means it is a parameter from the GET or POST request
 
@@ -61,9 +61,23 @@ public class BookController {
 
     @GetMapping( "/delete/{id}")
     public String deleteBookById(@PathVariable long id) {
-        // This returns a JSON or XML with the books
         bookRepository.deleteById(id);
         return "Book was deleted";
+    }
+
+
+    @GetMapping( "/addOrUpdate")
+    public String addOrUpdateNewBook(@RequestParam String title
+            , @RequestParam String author, @RequestParam (required=false) Long id) {
+
+        Book n = new Book();
+        n.setTitle(title);
+        n.setAuthor(author);
+        if (id != null){
+            n.setId(id);
+        }
+        bookRepository.save(n);
+        return "Saved";
     }
 
 }
